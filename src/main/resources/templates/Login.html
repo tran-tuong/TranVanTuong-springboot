@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
   <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
-  <h1>Login Form</h1>
-  <form th:action="@{/login}" th:object="${user}" method="post">
-    <table>
-      <tr>
-        <td>Username</td>
-        <td>
-          <input type="email" th:field="*{username}"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Password</td>
-        <td>
-          <input type="password" th:field="*{password}"/>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" class="error">
-          <div th:text="${error}"></div>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <button type="submit">Login</button>
-        </td>
-      </tr>
-    </table>
-  </form>
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <h2>Login to Your Account</h2>
+    </div>
+    <form th:action="@{/login}" th:object="${user}" method="post">
+      <div class="input-group">
+        <label>Username</label>
+        <input type="email" th:field="*{username}" required>
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" th:field="*{password}" required>
+      </div>
+      <div class="error-message" th:text="${error}"></div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p class="register">
+      <a th:href="@{/register}">Don't have account? Register</a>
+    </p>
+  </div>
+</div>
 </body>
 </html>

@@ -21,4 +21,21 @@ public class UserService {
     public Users findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+    public boolean registerUser(Users user, String confirmPassword) {
+        Users existingUser = userRepository.findByUsername(user.getUsername());
+        if (existingUser != null && existingUser.isPresent()) {
+            return false;
+        }
+
+        if (!user.getPassword().equals(confirmPassword)) {
+            return false;
+        }
+        // Mã hóa mật khẩu trước khi lưu
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("USER");
+
+        userRepository.save(user);
+        return true;
+    }
 }

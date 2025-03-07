@@ -9,8 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class FinalProjectApplication {
 
     public static void main(String[] args) {
-//        PasswordEncoder enconder = new BCryptPasswordEncoder();
-//        System.out.println(enconder.encode("password"));
         SpringApplication.run(FinalProjectApplication.class, args);
     }
 

@@ -1,9 +1,7 @@
 package com.samsung.finalproject.controller;
 
-import com.samsung.finalproject.models.entities.Person;
-import com.samsung.finalproject.models.entities.ShoppingCart;
 import com.samsung.finalproject.models.viewmodels.Users;
-import com.samsung.finalproject.services.PersonService;
+
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,16 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 @Controller
 public class HomeController {
-    PersonService personService;
-    ShoppingCart shoppingCart;
     AuthenticationManager authenticationManager;
-    public HomeController(PersonService personService, ShoppingCart shoppingCart, AuthenticationManager authenticationManager) {
-        this.personService = personService;
-        this.shoppingCart = shoppingCart;
+    public HomeController(AuthenticationManager authenticationManager) {
+
         this.authenticationManager = authenticationManager;
     }
 

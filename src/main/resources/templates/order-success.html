@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Đặt hàng thành công</title>
+</head>
+<body>
+<h1>🎉 Đặt hàng thành công! 🎉</h1>
+
+<p>Cảm ơn <span th:text="${customerName}"></span> đã mua sắm tại cửa hàng của chúng tôi.</p>
+<p>Thông tin đơn hàng đã được gửi đến email: <strong th:text="${email}"></strong></p>
+<p>Chúng tôi sẽ liên hệ với bạn qua số điện thoại: <strong th:text="${phoneNumber}"></strong> để xác nhận đơn hàng.</p>
+
+<a href="/products">Tiếp tục mua sắm</a>
+</body>
+</html>

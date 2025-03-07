@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Giỏ Hàng</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Giỏ Hàng</h1>
+
+<div th:each="item : ${cartItems}">
+  <h2 th:text="${item.product.name}"></h2>
+  <p th:text="${#numbers.formatDecimal(item.product.price, 0, 'COMMA', 0, 'POINT')} + 'đ'"></p>
+  <p>Số lượng: <span th:text="${item.quantity}"></span></p>
+</div>
+
+<form action="/cart/checkout" method="post" th:if="${cartItems.size() > 0}">
+  <button type="submit">Check Out</button>
+</form>
+
+<p th:if="${cartItems.size() == 0}">Giỏ hàng trống.</p>
+
+<a href="/products">Tiếp tục mua sắm</a>
+</body>
+</html>

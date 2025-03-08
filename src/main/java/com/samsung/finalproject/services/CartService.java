@@ -2,8 +2,10 @@ package com.samsung.finalproject.services;
 
 import com.samsung.finalproject.models.entities.CartItem;
 import com.samsung.finalproject.models.entities.Order;
+import com.samsung.finalproject.models.entities.OrderItem;
 import com.samsung.finalproject.models.entities.Product;
 import com.samsung.finalproject.models.repositories.CartItemRepository;
+import com.samsung.finalproject.models.repositories.OrderItemRepository;
 import com.samsung.finalproject.models.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,9 @@ public class CartService {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     public List<CartItem> getCartItems() {
         return cartItemRepository.findAll();
@@ -60,6 +65,17 @@ public class CartService {
 
         // Save the order to the database
         orderRepository.save(order);
+
+        // Save the order items
+        List<CartItem> cartItems = getCartItems();
+        for (CartItem cartItem : cartItems) {
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+            orderItem.setProduct(cartItem.getProduct());
+            orderItem.setQuantity(cartItem.getQuantity());
+            orderItem.setPrice(cartItem.getProduct().getPrice());
+            orderItemRepository.save(orderItem);
+        }
     }
 }
 

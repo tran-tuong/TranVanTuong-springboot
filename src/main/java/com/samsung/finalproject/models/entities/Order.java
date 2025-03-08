@@ -19,6 +19,9 @@ public class Order {
     private String phoneNumber;
     private double totalAmount;
 
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
+
     // Getters & Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

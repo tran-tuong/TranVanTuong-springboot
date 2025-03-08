@@ -2,6 +2,8 @@ package com.samsung.finalproject.services;
 
 import com.samsung.finalproject.models.repositories.UserRepository;
 import com.samsung.finalproject.models.viewmodels.Users;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -37,5 +39,15 @@ public class UserService {
 
         userRepository.save(user);
         return true;
+    }
+
+    public Users getCurrentUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof User) {
+            String username = ((User) principal).getUsername();
+            // Retrieve the user from the database using the username
+            return userRepository.findByUsername(username);
+        }
+        return null;
     }
 }

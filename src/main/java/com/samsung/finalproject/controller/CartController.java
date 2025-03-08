@@ -62,11 +62,11 @@ public class CartController {
             return "redirect:/login";
         }
 
-        // Get user details
-        Users user = userService.getCurrentUser();
-        if (user == null) {
-            return "redirect:/login";
-        }
+//        // Get user details
+//        Users user = userService.getCurrentUser();
+//        if (user == null) {
+//            return "redirect:/login";
+//        }
 
         // Clear the cart after the order is placed
         cartService.clearCart();

@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -30,8 +29,9 @@ public class SecurityConfig {
                 .cors(c->c.disable())
                 .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/login", "/register", "/signin").permitAll()
-                .requestMatchers("/css/**").permitAll()
+                .requestMatchers("/css/**", "/static/videos/**").permitAll()
                 .anyRequest().authenticated())
+
                 .formLogin(form -> form
                         .loginPage("/login")
                         .failureHandler(failureHandler)

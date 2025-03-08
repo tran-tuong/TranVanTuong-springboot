@@ -17,6 +17,7 @@ public class Order {
     private String customerName;
     private String email;
     private String phoneNumber;
+    private double totalAmount;
 
     // Getters & Setters
     public Long getId() { return id; }
@@ -33,4 +34,7 @@ public class Order {
 
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public double getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(double totalAmount) { this.totalAmount = totalAmount; }
 }

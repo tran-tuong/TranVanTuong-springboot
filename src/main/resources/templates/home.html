@@ -1,19 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        .intro-section {
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .intro-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        .intro-section p {
+            font-size: 1.25rem;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: #007bff;
+        }
+
+        .feature-text {
+            font-size: 1.1rem;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+    </style>
 </head>
 <body>
+
 <div th:replace="header :: body"></div>
-<h2 class="text-center mb-4">Welcome to Tran Van Tuong Website</h2>
-<div>
-    <video autoplay loop muted>
-        <source src="/static/videos/welcome.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
+
+<!-- Introduction Section -->
+<section class="intro-section">
+    <div class="container">
+        <h1 class="animate__animated animate__fadeIn">Welcome to Tran Van Tuong Website</h1>
+        <p class="animate__animated animate__fadeIn">Your journey to excellence begins here. Explore, Learn, and Grow!</p>
+        <a href="/products" class="btn btn-custom animate__animated animate__fadeIn">Start Shopping</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="feature-box animate__animated animate__fadeIn">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-cart-check"></i> <!-- Bootstrap Icons -->
+                </div>
+                <h4>Quality Products</h4>
+                <p class="feature-text">We offer high-quality products at great prices, carefully curated for you!</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box animate__animated animate__fadeIn">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-truck"></i>
+                </div>
+                <h4>Fast Delivery</h4>
+                <p class="feature-text">Experience fast and reliable delivery to your doorstep. We value your time!</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box animate__animated animate__fadeIn">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-heart"></i>
+                </div>
+                <h4>Customer Care</h4>
+                <p class="feature-text">Our dedicated support team is here to assist you with any concerns or questions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="text-center p-4 bg-dark text-white mt-4">
+    <p>© 2025 Tran Van Tuong. All Rights Reserved.</p>
+</footer>
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+
 </body>
 </html>

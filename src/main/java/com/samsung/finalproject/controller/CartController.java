@@ -27,7 +27,9 @@ public class CartController {
     @GetMapping
     public String viewCart(Model model) {
         List<CartItem> cartItems = cartService.getCartItems();
+        double totalAmount = cartService.calculateTotal();  // Calculate total price
         model.addAttribute("cartItems", cartItems);
+        model.addAttribute("totalAmount", totalAmount);  // Pass the total amount to the view
         return "cart";
     }
 
